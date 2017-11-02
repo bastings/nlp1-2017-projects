@@ -26,6 +26,6 @@ To make training of neural networks faster, you may want to use pre-trained word
 ## Required reading
 
 1. J&M [chapter Language Models](https://web.stanford.edu/~jurafsky/slp3/)
-2. [Bengio (2003)](http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
-3. [Mikolov (2010)](http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
+2. [Bengio (2003) NNLM](http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+3. [Mikolov (2010) RNN-LM](http://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
 4. [Lee et al. (2017) RAN](https://arxiv.org/abs/1705.07393)
