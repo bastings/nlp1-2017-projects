@@ -26,7 +26,6 @@ To extract dependency trees from your trained model, you will need an algorithm 
 
 ## Required readings
 
-1. J&M 3rd edition, [chapter Dependency parsing](https://web.stanford.edu/~jurafsky/slp3/)
-  * Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5
+1. J&M 3rd edition, [chapter Dependency parsing](https://web.stanford.edu/~jurafsky/slp3/). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
 2. [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023)
 3. [Dozat & Manning (2017)](https://web.stanford.edu/~tdozat/files/TDozat-ICLR2017-Paper.pdf)
