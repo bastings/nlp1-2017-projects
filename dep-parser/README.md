@@ -46,9 +46,10 @@ Our dependency trees will also have labels, e.g. “I” is in a subject relatio
 
 ## Graph algorithms
 
-This project is about *graph-based* methods for obtaining a dependency parse. This means we you will use graph algorithms like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm) to obtain a dependency tree for the sentence under consideration. These algorithms find the the minimum-spanning tree (MST) in a given graph. Our model assigns weights to each possible arc between each pair of words in the sentence. These algorithms then obtain
-<!--
+This project is about *graph-based* methods for obtaining a dependency parse.
 
+This means we you will use graph algorithms like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm) to obtain a dependency tree for the sentence under consideration. These algorithms find the the minimum-spanning tree (MST) in a given graph. Our model assigns weights to each possible arc between each pair of words in the sentence. These algorithms then obtain
+<!--
 (for projective trees, suitable for languages such as English) and/or [Chu-Liu-Edmonds](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) (for non-projective trees, languages such as German) to find the minimum-spanning tree (MST) given the weights your model assigns between each pair of words.
  More about this below!
 
@@ -62,8 +63,8 @@ Here we will give you pointers to good sources on neural networks.
 
 --------
 
-## Required eadings
+## Required readings
 
 1. J&M 3rd edition, chapter [Dependency parsing](Jurafsky&ManningCh14.pdf). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
 2. [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
-3. [Dozat & Manning (2017)](Dozat&Manning2017.pdf)
+3. [Dozat & Manning (2017)](Dozat&Manning2017.pdf) (also see their [poster](TDozat-ICLR2017-Poster.pdf) and [slides](TDozat-CoNLL2017-Presentation.pdf)!)
