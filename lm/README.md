@@ -1,5 +1,10 @@
 # Neural Language Modeling
 
+
+## Notes after 9 nov lab
+
+You can find the PyTorch code example, with the Neural n-gram LM, here: http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html
+
 ## Introduction
 
 Language modeling is a central problem in NLP, since it is so useful for many tasks, e.g. in machine translation. 
