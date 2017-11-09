@@ -81,9 +81,9 @@ such as Dutch and German, because we can extract non-projective dependency trees
 
 ## Neural networks
 
-Here we will give you pointers to good sources on neural networks.
+For the method above to work well, we need to assign **scores** to all the possible edges. They are crucial for obtaining good parses! But how do get them? For this we will use a **neural network**.
 
---------
+Here we will collect good sources on neural networks that are relevant to this project.
 
 ## Required readings
 
