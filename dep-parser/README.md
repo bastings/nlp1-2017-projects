@@ -30,7 +30,7 @@ Here is an example of a sentence annotated with its dependency relations:
 
 **Dependency parsing** is the task of taking a bare (unannotated) sentence like *I prefer the morning flight through Denver* and then assigning a syntactic structure to it. If our parser is good, it will assign (roughly) the parse in the image above.
 
-<!-- What are -->
+
 <!-- A dependency tree can help to disambiguate the meaning of a sentence. -->
 
 <!-- Take the following example from Jurafsky and Manning chapter 12: "To answer the question
