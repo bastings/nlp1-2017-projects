@@ -4,27 +4,63 @@ In this project you will build a dependency parser from scratch!
 
 ## Introduction
 
-In this project you will build a graph-based dependency parser in PyTorch.
+In this project you will build a *graph-based dependency parser* that is trained using *neurals networks* with the help of *PyTorch*. Concretely, you will:
 
-A dependency tree can help to disambiguate the meaning of a sentence,
-by uncovering the (kinds of) relations between its words:
+* Read the relevant literature on dependency grammars, graph algorithms, and neural networks
+* Use this to re-implement the model described in [Dozat & Manning (2017)](https://web.stanford.edu/~tdozat/files/TDozat-ICLR2017-Paper.pdf)
+* Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally a language that you are familiar with, so that you can inspect the behaviour of you model :)
+* Use the trained model to parse sentences in a test-set, and see how well it performs
+* Run a baseline dependency parser (out of the box) to get some scores. See if you can beat them with your own parser!
 
+At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it: investigate its performance on really hard sentences (look [here] for inspiration!); inspect the neural network to see what it has learned; investigate the type of grammatical errors your parser makes; or you could even come up with an improvement to the model!
+
+Read on for more details.
+
+## Dependency grammar
+
+*Dependency grammar* is a grammatical formalism that is based on word-word relations. This means that the grammatical structure of a sentence is described solely in terms of the words in a sentence and the syntactic relations between the words. Here is an example of a sentence annotated with its dependency relations:
+
+![example](dependency-example)
+
+*Dependency parsing* is the task of taking the bare sentence *Kasey hugged Kim* and assigning a syntactic structure to it.
+
+A dependency tree can help to disambiguate the meaning of a sentence. Take the following example from Jurafsky and Manning chapter 12: "To answer the question
+
+> What books were written by British women authors before 1800?
+
+we’ll need to know that the subject of the sentence was *what books* and that the by-adjunct
+was *British women authors* to help us figure out that the user wants a list of
+books (and not a list of authors)."
+
+A dependency grammar provides us which this information!
+
+<!--
 - I saw [the girl] [with the telescope].
 - I saw [the girl with the telecope].
-
 Our dependency trees will also have labels, e.g. “I” is in a subject relation with “saw”.
 
+ -->
+
+
+## Graph algorithms
+
+This project is about *graph-based* methods for obtaining a dependency parse. This means we you will use graph algorithms like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm) to obtain a dependency tree for the sentence under consideration. These algorithms find the the minimum-spanning tree (MST) in a given graph. Our model assigns weights to each possible arc between each pair of words in the sentence. These algorithms then obtain
+<!--
+
+(for projective trees, suitable for languages such as English) and/or [Chu-Liu-Edmonds](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) (for non-projective trees, languages such as German) to find the minimum-spanning tree (MST) given the weights your model assigns between each pair of words.
+ More about this below!
+
 The advantage of graph-based dependency parsers is that they can work well on languages with discontinuities,
-such as Dutch and German, because we can extract non-projective dependency trees from them.
+such as Dutch and German, because we can extract non-projective dependency trees from them. -->
 
-You will read relevant literature and re-implement the dependency parser of Dozat & Manning.
-Next to English, you will choose one other language to investigate from the [Universal Dependencies project](http://universaldependencies.org/)
 
-You will run a baseline dependency parser (out of the box) to get some scores that you will then try to beat with your own parser.
+## Neural networks
 
-To extract dependency trees from your trained model, you will need an algorithm such as Eisner (for projective trees, suitable for languages such as English) and/or Chu-Liu-Edmonds (for non-projective trees, languages such as German) to find the minimum-spanning tree (MST) given the weights your model assigns between each pair of words.
+Here we will give you pointers to good sources on neural networks.
 
-## Required readings
+--------
+
+## Required eadings
 
 1. J&M 3rd edition, [chapter Dependency parsing](https://web.stanford.edu/~jurafsky/slp3/). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
 2. [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023)
