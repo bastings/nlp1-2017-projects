@@ -4,7 +4,9 @@ In this project you will build a dependency parser from scratch!
 
 ## Introduction
 
-In this project you will build a **graph-based dependency parser** that is trained using **neurals networks** with the help of **PyTorch**. Concretely, you will:
+In this project you will build a **graph-based dependency parser** that is trained using **neurals networks** with the help of **PyTorch**.
+
+Concretely, you will:
 
 * Read the relevant literature on dependency grammars, graph algorithms, and neural networks
 * Use this to re-implement the model described in [Dozat & Manning (2017)](https://web.stanford.edu/~tdozat/files/TDozat-ICLR2017-Paper.pdf)
@@ -18,13 +20,18 @@ Read on for more details.
 
 ## Dependency grammar
 
-*Dependency grammar* is a grammatical formalism that is based on word-word relations. This means that the grammatical structure of a sentence is described solely in terms of the words in a sentence and the syntactic relations between the words. Here is an example of a sentence annotated with its dependency relations:
+**Dependency grammar** is a grammatical formalism that is based on word-word relations. This means that the grammatical structure of a sentence is described solely in terms of the **words** in a sentence and the **syntactic relations** between the words.
+
+Here is an example of a sentence annotated with its dependency relations:
 
 ![example](dependency-example.png)
 
-*Dependency parsing* is the task of taking the bare sentence *Kasey hugged Kim* and assigning a syntactic structure to it.
+(We will refer to the above interchangebly as a **dependency parse**, a **dependency graph**, and **dependency tree**.)
 
-A dependency tree can help to disambiguate the meaning of a sentence. For
+**Dependency parsing** is the task of taking a bare (unannotated) sentence like *I prefer the morning flight through Denver* and then assigning a syntactic structure to it. If our parser is good, it will assign (roughly) the parse in the image above.
+
+What are
+A dependency tree can help to disambiguate the meaning of a sentence.
 
 <!-- Take the following example from Jurafsky and Manning chapter 12: "To answer the question
 
@@ -32,9 +39,9 @@ A dependency tree can help to disambiguate the meaning of a sentence. For
 
 we’ll need to know that the subject of the sentence was *what books* and that the by-adjunct
 was *British women authors* to help us figure out that the user wants a list of
-books (and not a list of authors)." -->
+books (and not a list of authors)." --> -->
 
-A dependency grammar provides us which this information!
+A dependency grammar provides us which this information! -->
 
 <!--
 - I saw [the girl] [with the telescope].
