@@ -24,13 +24,15 @@ Read on for more details.
 
 *Dependency parsing* is the task of taking the bare sentence *Kasey hugged Kim* and assigning a syntactic structure to it.
 
-A dependency tree can help to disambiguate the meaning of a sentence. Take the following example from Jurafsky and Manning chapter 12: "To answer the question
+A dependency tree can help to disambiguate the meaning of a sentence. For
+
+<!-- Take the following example from Jurafsky and Manning chapter 12: "To answer the question
 
 > What books were written by British women authors before 1800?
 
 we’ll need to know that the subject of the sentence was *what books* and that the by-adjunct
 was *British women authors* to help us figure out that the user wants a list of
-books (and not a list of authors)."
+books (and not a list of authors)." -->
 
 A dependency grammar provides us which this information!
 
@@ -62,6 +64,6 @@ Here we will give you pointers to good sources on neural networks.
 
 ## Required eadings
 
-1. J&M 3rd edition, [chapter Dependency parsing](https://web.stanford.edu/~jurafsky/slp3/). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
-2. [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023)
-3. [Dozat & Manning (2017)](https://web.stanford.edu/~tdozat/files/TDozat-ICLR2017-Paper.pdf)
+1. J&M 3rd edition, chapter [Dependency parsing](Jurafsky&ManningCh14.pdf). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
+2. [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
+3. [Dozat & Manning (2017)](Dozat&Manning2017.pdf)
