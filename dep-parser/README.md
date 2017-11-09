@@ -9,12 +9,12 @@ In this project you will build a **graph-based dependency parser** that is train
 Concretely, you will:
 
 * Read the relevant literature on dependency grammars, graph algorithms, and neural networks
-* Use this to re-implement the model described in [Dozat & Manning (2017)](https://web.stanford.edu/~tdozat/files/TDozat-ICLR2017-Paper.pdf)
-* Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally a language that you are familiar with, so that you can inspect the behaviour of you model :)
-* Use the trained model to parse sentences in a test-set, and see how well it performs
-* Run a baseline dependency parser (out of the box) to get some scores. See if you can beat them with your own parser!
+* Use this to re-implement the model described in [Dozat & Manning (2017)](Dozat&Manning2017.pdf), which is an extension of [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
+* Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally you choose a language that you are familiar with, so that you can interpret the performance of you model!
+* Use the trained model to parse sentences in a test-set, and evaluate how well it performs
+* Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
 
-At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it: investigate its performance on really hard sentences (look [here](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences#cite_note-1) for inspiration!); inspect the neural network to see what it has learned; investigate the type of grammatical errors your parser makes; or you could even come up with an improvement to the model!
+At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it: investigate its performance on very hard sentences (look [here](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences#cite_note-1) for inspiration!); inspect the trained neural network to see what it has learned; investigate the type of grammatical errors your parser makes; or you could even come up with an improvement to the model!
 
 Read on for more details.
 
@@ -22,11 +22,11 @@ Read on for more details.
 
 **Dependency grammar** is a grammatical formalism that is based on word-word relations. This means that the grammatical structure of a sentence is described solely in terms of the **words** in a sentence and the **syntactic relations** between the words.
 
-Here is an example of a sentence annotated with its dependency relations:
+Here is an example of a sentence annotated with dependency relations:
 
 ![example](dependency-example.png)
 
-(We will refer to the above interchangebly as a **dependency parse**, a **dependency graph**, and **dependency tree**.)
+(We will refer to the above interchangebly as: a **dependency parse**; a **dependency graph**; and **dependency tree**.)
 
 **Dependency parsing** is the task of taking a bare (unannotated) sentence like *I prefer the morning flight through Denver* and then assigning a syntactic structure to it. If our parser is good, it will assign (roughly) the parse in the image above.
 
@@ -53,18 +53,17 @@ Our dependency trees will also have labels, e.g. “I” is in a subject relatio
 
 ## Graph algorithms
 
-This project is about *graph-based* methods for obtaining a dependency parse.
+This project is about *graph-based* dependency parsing.
 
-This means we you will use graph algorithms like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm). These algorithms find the the minimum-spanning tree [(MST)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of a connected graph.
+This means we you will use a graph algorithm like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm). These algorithms are used to find the so called **minimum-spanning-tree** [(MST)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) in a graph. They are general graph algorithms used for all kinds of discrete optimisation tasks.
 
+The way **we** will use these algorithms is as follows. Let's say we have a sentence. Our model assigns **weights** to **all possible arcs** between the words in the sentence (more below about how we get these weights). This gives us a **complete graph** on all the words in the sentence, with **weighted arcs**. Then, we use one of the above algorithms to obtain the minimum-spanning tree in this complete graph. What we obtain is the predicted **dependency tree** for the sentence under consideration.
 
-The way we need these algorithm is as follows. Let's say we have a sentence. Our model then assigns weights (or 'scores') to all possible arcs between the words in the sentence. This gives us a **complete graph** on all the words in the sentence, where each **arc** has a **weight**. We then use the above algorithms to obtain the minimum-spanning tree in this complete graph. This is then the **dependency tree** for the sentence under consideration.
-
-This image is a good illustration of this process:
+The following image gives a good visual summary of the process.
 
 ![hug-MST](kasey-hugged-kim-MST.png)
 
-The dotted lines show the complete graph. The solid lines the obtained minimum-spanning-tree. This gives use then the dependency parse
+The dotted lines show the complete graph. (Each of these is assigned a weight) The solid lines the obtained minimum-spanning-tree. This gives use then the dependency parse
 
 ![hug](kasey-hugged-kim.png)
 
@@ -81,9 +80,10 @@ such as Dutch and German, because we can extract non-projective dependency trees
 
 ## Neural networks
 
-For the method above to work well, we need to assign **scores** to all the possible edges. They are crucial for obtaining good parses! But how do get them? For this we will use a **neural network**.
+For the method above to work well, we need to assign **weights** to all the possible edges. These weights are crucial for obtaining good parses; they essentially control which tree we obtain! But how do get them? For this we will use a **neural network**.
 
-Here we will collect good sources on neural networks that are relevant to this project.
+`[Under development]`
+
 
 ## Required readings
 
