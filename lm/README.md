@@ -9,6 +9,8 @@
 
 - As your data set, for English, please use the Penn Treebank Dataset, so that we can compare perplexities: https://github.com/pytorch/examples/tree/master/word_language_model/data/penn
 
+- If you're interested in how to get word embeddings **without** neural networks, then check out this blog post: http://multithreaded.stitchfix.com/blog/2017/10/18/stop-using-word2vec/
+
 ## Introduction
 
 Language modeling is a central problem in NLP, since it is so useful for many tasks, e.g. in machine translation. 
