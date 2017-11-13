@@ -14,7 +14,12 @@ Concretely, you will:
 * Use the trained model to parse sentences in a test-set, and evaluate how well it performs
 * Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
 
-At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it: investigate its performance on very hard sentences (look [here](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences#cite_note-1) for inspiration!); inspect the trained neural network to see what it has learned; investigate the type of grammatical errors your parser makes; or you could even come up with an improvement to the model!
+At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it:
+
+* investigate its performance on very hard sentences (look [here](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences#cite_note-1) for inspiration!);
+* inspect the trained neural network to see what it has learned;
+* investigate the type of grammatical errors your parser makes;
+* or you could even come up with an improvement to the model!
 
 Read on for more details.
 
@@ -26,36 +31,16 @@ Here is an example of a sentence annotated with dependency relations:
 
 ![example](dependency-example.png)
 
-(We will refer to the above interchangebly as: a **dependency parse**; a **dependency graph**; and **dependency tree**.)
+(We will refer to the above interchangeably as: a **dependency parse**; a **dependency graph**; and **dependency tree**.)
 
 **Dependency parsing** is the task of taking a bare (unannotated) sentence like *I prefer the morning flight through Denver* and then assigning a syntactic structure to it. If our parser is good, it will assign (roughly) the parse in the image above.
-
-
-<!-- A dependency tree can help to disambiguate the meaning of a sentence. -->
-
-<!-- Take the following example from Jurafsky and Manning chapter 12: "To answer the question
-
-> What books were written by British women authors before 1800?
-
-we’ll need to know that the subject of the sentence was *what books* and that the by-adjunct
-was *British women authors* to help us figure out that the user wants a list of
-books (and not a list of authors)." --> -->
-
-<!-- A dependency grammar provides us which this information! --> -->
-
-<!--
-- I saw [the girl] [with the telescope].
-- I saw [the girl with the telecope].
-Our dependency trees will also have labels, e.g. “I” is in a subject relation with “saw”.
-
- -->
 
 
 ## Graph algorithms
 
 This project is about *graph-based* dependency parsing.
 
-This means we you will use a graph algorithm like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm). These algorithms are used to find the so called **minimum-spanning-tree** [(MST)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) in a graph. They are general graph algorithms used for all kinds of discrete optimisation tasks.
+Concretely, this means we you will use a graph algorithm like [Chu-Liu-Edmonds' algorithm](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) or [Eisner's algorithm](http://curtis.ml.cmu.edu/w/courses/index.php/Eisner_algorithm). These algorithms are used to find the so called **minimum-spanning-tree** [(MST)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) in a graph. They are general graph algorithms used for all kinds of discrete optimisation tasks.
 
 The way **we** will use these algorithms is as follows. Let's say we have a sentence. Our model assigns **weights** to **all possible arcs** between the words in the sentence (more below about how we get these weights). This gives us a **complete graph** on all the words in the sentence, with **weighted arcs**. Then, we use one of the above algorithms to obtain the minimum-spanning tree in this complete graph. What we obtain is the predicted **dependency tree** for the sentence under consideration.
 
@@ -77,6 +62,9 @@ Note: the **labels** on the arcs are **not** obtained using this algorithm. They
 The advantage of graph-based dependency parsers is that they can work well on languages with discontinuities,
 such as Dutch and German, because we can extract non-projective dependency trees from them. -->
 
+### Sources
+
+* There is a **python package for graphs** called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages. See the [notebook](notebooks/graphs.ipynb) for a full demo.
 
 ## Neural networks
 
@@ -84,9 +72,36 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 `[Under development]`
 
+### Sources
+
+In this selection we collect all sources that we think are useful for understanding the neural network methods used in this projects.
+
+(Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.)
+
+* Word embeddings
+  * [Chapter 15](https://web.stanford.edu/~jurafsky/slp3/15.pdf) and especially [chapter 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf) of Jurafsky and Martin (3rd edition) contains background on the idea of using vector representations for words.
+  * The [notebook on word embeddings](notebooks/embeddings.inpynb) we looked at in the tutorial.
+  * The PyTorch documentation on [sparse layers](http://pytorch.org/docs/master/nn.html#embedding) in the NN module (which in particular contains the class `Embedding`).
+
+* [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network) (RNNs) and [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN).
+  * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) by Andrej Karpathy.
+  * [These lecture notes](http://cs224d.stanford.edu/lecture_notes/notes4.pdf) from the Stanford course Deep Learning for NLP.
+  * [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) on Christopher Olah's blog.
+
+* Pytorch implementations
+  * This [PyTorch tutorial](http://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html), which has a simple implementation of an RNN.
+  * Another [PyTorch tutorial](http://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html?highlight=lstm) on how to use and LSTM for POS-tagging (without an HMM, Viterbi, or the forward-backward probabilities!).
+  * The PyTorch documentation on [recurrent layers](http://pytorch.org/docs/master/nn.html#recurrent-layers) in the NN module.
+
 
 ## Required readings
+
+The following sources are the theoretical backbone of the project:
 
 1. J&M 3rd edition, chapter [Dependency parsing](Jurafsky&ManningCh14.pdf). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
 2. [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
 3. [Dozat & Manning (2017)](Dozat&Manning2017.pdf) (also see their [poster](TDozat-ICLR2017-Poster.pdf) and [slides](TDozat-CoNLL2017-Presentation.pdf)!)
+
+We advice you to read them in this order, especially the last two papers: Dozat & Manning (2017) is an extension of the model of Kiperwasser & Goldberg (2016), and the former presupposes a lot of knowledge of the latter.
+
+Note that The Kiperwasser & Goldberg paper is rather dense, but very complete. It contains condensed but very good explanations of all the techniques and steps taken in the implementation. So study this paper carefully! Then the extension that Dozat & Manning propose will make a lot more sense.
