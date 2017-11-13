@@ -9,7 +9,7 @@ In this project you will build a **graph-based dependency parser** that is train
 Concretely, you will:
 
 * Read the relevant literature on dependency grammars, graph algorithms, and neural networks
-* Use this to re-implement the model described in [Dozat & Manning (2017)](Dozat&Manning2017.pdf), which is an extension of [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
+* Use this to re-implement the model described in [Dozat & Manning (2017)](https://arxiv.org/abs/1611.01734), which is an extension of [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023)
 * Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally you choose a language that you are familiar with, so that you can interpret the performance of you model!
 * Use the trained model to parse sentences in a test-set, and evaluate how well it performs
 * Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
