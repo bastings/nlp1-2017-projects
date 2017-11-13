@@ -21,7 +21,7 @@ At the end of the project you will have a fully working parser! If time permits,
 * investigate the type of grammatical errors your parser makes;
 * or you could even come up with an improvement to the model!
 
-Read on for more details.
+Read on for more details on the project.
 
 ## Dependency grammar
 
@@ -64,7 +64,7 @@ such as Dutch and German, because we can extract non-projective dependency trees
 
 ### Sources
 
-* There is a **python package for graphs** called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages. See the [notebook](notebooks/graphs.ipynb) for a full demo.
+* There is a python package for graphs called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages. See the [notebook](notebooks/graphs.ipynb) for a full demo.
 
 ## Neural networks
 
@@ -74,7 +74,7 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 ### Sources
 
-In this selection we collect all sources that we think are useful for understanding the neural network methods used in this projects.
+In this section we collect sources that we think are useful for understanding the neural network methods used in this projects.
 
 (Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.)
 
