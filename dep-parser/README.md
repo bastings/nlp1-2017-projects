@@ -87,6 +87,6 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 ## Required readings
 
-1. J&M 3rd edition, chapter [Dependency parsing](Jurafsky&ManningCh14.pdf). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
-2. [Kiperwasser & Goldberg (2016)](Kiperwasser&Goldberg2016.pdf)
-3. [Dozat & Manning (2017)](Dozat&Manning2017.pdf) (also see their [poster](TDozat-ICLR2017-Poster.pdf) and [slides](TDozat-CoNLL2017-Presentation.pdf)!)
+1. J&M 3rd edition, chapter [Dependency parsing](https://web.stanford.edu/~jurafsky/slp3/14.pdf). Skip section 14.4 for now. In this section a so called *transition*-based parsing method is discussed; we will focus on the *graph*-based parsing method introduced in section 14.5.
+2. [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023)
+3. [Dozat & Manning (2017)](https://arxiv.org/abs/1611.01734) (also see their [poster](TDozat-ICLR2017-Poster.pdf) and [slides](TDozat-CoNLL2017-Presentation.pdf)!)
