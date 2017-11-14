@@ -80,7 +80,7 @@ In this section we collect sources that we think are useful for understanding th
 
 * Word embeddings
   * [Chapter 15](https://web.stanford.edu/~jurafsky/slp3/15.pdf) and especially [chapter 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf) of Jurafsky and Martin (3rd edition) contains background on the idea of using vector representations for words.
-  * The [notebook on word embeddings](notebooks/word-embeddings.inpynb) we looked at in the tutorial.
+  * The [notebook on word embeddings](notebooks/word-embeddings.ipynb) we looked at in the tutorial.
   * The PyTorch documentation on [sparse layers](http://pytorch.org/docs/master/nn.html#embedding) in the NN module (which in particular contains the class `Embedding`).
 
 * [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network) (RNNs) and [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN).
