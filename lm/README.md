@@ -1,5 +1,16 @@
 # Neural Language Modeling
 
+## Report requirements
+
+As a final product, you will be asked to write a report with your findings, which should at least contain:
+
+- A background section, in which you explain what is language modelling, what kind of language models you studied, and what is the problem you focus on. To write this background section, you can use the suggested papers, but also add papers;
+- A summary of the relevant literature
+    - A description of your replication;
+- A formal discription of your model(s) and changes/improvements you made compared to the literature
+- Analysis of your results
+- A conclusion
+
 ## Notes after 9 nov lab
 
  - You can find the PyTorch code example, with the Neural n-gram LM, here: http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html
