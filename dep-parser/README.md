@@ -44,11 +44,11 @@ Concretely, this means we you will use a graph algorithm like [Chu-Liu-Edmonds' 
 
 The way **we** will use these algorithms is as follows. Let's say we have a sentence. Our model assigns **weights** to **all possible arcs** between the words in the sentence (more below about how we get these weights). This gives us a **complete graph** on all the words in the sentence, with **weighted arcs**. Then, we use one of the above algorithms to obtain the minimum-spanning tree in this complete graph. What we obtain is the predicted **dependency tree** for the sentence under consideration.
 
-The following image gives a good visual summary of the process.
+The following image gives a good visual summary of the process for the sentence *Kasey hugged Kim*:
 
 ![hug-MST](kasey-hugged-kim-MST.png)
 
-The dotted lines show the complete graph. (Each of these is assigned a weight) The solid lines the obtained minimum-spanning-tree. This gives use then the dependency parse
+The dotted lines show the complete graph. Each of these is assigned a weight by our model. We then run the MST algorithm. The solid lines show the obtained minimum-spanning-tree. This gives use then the dependency parse:
 
 ![hug](kasey-hugged-kim.png)
 
@@ -80,13 +80,14 @@ In this section we collect sources that we think are useful for understanding th
 
 * Word embeddings
   * [Chapter 15](https://web.stanford.edu/~jurafsky/slp3/15.pdf) and especially [chapter 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf) of Jurafsky and Martin (3rd edition) contains background on the idea of using vector representations for words.
-  * The [notebook on word embeddings](notebooks/embeddings.inpynb) we looked at in the tutorial.
+  * The [notebook on word embeddings](notebooks/word-embeddings.inpynb) we looked at in the tutorial.
   * The PyTorch documentation on [sparse layers](http://pytorch.org/docs/master/nn.html#embedding) in the NN module (which in particular contains the class `Embedding`).
 
 * [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network) (RNNs) and [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN).
   * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) by Andrej Karpathy.
-  * [These lecture notes](http://cs224d.stanford.edu/lecture_notes/notes4.pdf) from the Stanford course Deep Learning for NLP.
   * [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) on Christopher Olah's blog.
+  * [These lecture notes](http://cs224d.stanford.edu/lecture_notes/notes4.pdf) from the Stanford course Deep Learning for NLP.
+
 
 * Pytorch implementations
   * This [PyTorch tutorial](http://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html), which has a simple implementation of an RNN.
