@@ -1,5 +1,15 @@
 # Neural Language Modeling
 
+## Notes after 9 nov lab
+
+ - You can find the PyTorch code example, with the Neural n-gram LM, here: http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html
+ 
+ - You can find an RNN LM PyTorch code example here (advanced!): https://github.com/pytorch/examples/tree/master/word_language_model 
+  
+ - As your data set, for English, please use the Penn Treebank Dataset, so that we can compare perplexities: https://github.com/pytorch/examples/tree/master/word_language_model/data/penn
+  
+ - If you're interested in how to get word embeddings **without** neural networks, then check out this blog post: http://multithreaded.stitchfix.com/blog/2017/10/18/stop-using-word2vec/
+
 ## Introduction
 
 Language modeling is a central problem in NLP, since it is so useful for many tasks, e.g. in machine translation. 
