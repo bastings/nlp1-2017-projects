@@ -2,7 +2,7 @@
 
 ## Report requirements
 
-As a final product, you will be asked to write a report with your findings, which should at least contain:
+As a final product, you will be asked to write an 8-page report with your findings, which should at least contain:
 
 - A background section, in which you explain what is language modelling, what kind of language models you studied, and what is the problem you focus on. To write this background section, you can use the suggested papers, but also add papers;
 - A summary of the relevant literature
