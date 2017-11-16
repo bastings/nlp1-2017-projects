@@ -11,6 +11,13 @@ As a final product, you will be asked to write a report with your findings, whic
 - Analysis of your results
 - A conclusion
 
+## Notes 13 Nov
+
+Optional extra literature:
+
+- [Melis et al. 2017. On the State of the Art of Evaluation in Neural Language Models](https://arxiv.org/abs/1707.05589)
+- [Press and Wolf, 2016. Using the Output Embedding to Improve Language Models](https://arxiv.org/abs/1608.05859)
+
 ## Notes after 9 nov lab
 
  - You can find the PyTorch code example, with the Neural n-gram LM, here: http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html
