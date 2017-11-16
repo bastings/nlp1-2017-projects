@@ -22,7 +22,9 @@ At the end of the project you will have a fully working parser! If time permits,
 * Inspect the parameters of the trained neural network to see what it has learned.
 * Or you could even come up with an improvement to the model!
 
-Read on for more details on the project. Under the section **sources** I collect sources that you might find useful. Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.
+Read on for more details on the project.
+
+Under the section **sources** I collect sources that you might find useful. Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.
 
 
 
