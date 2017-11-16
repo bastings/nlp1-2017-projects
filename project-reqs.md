@@ -4,13 +4,10 @@ The report describes your project, the work that you have done and your findings
 be structured like a research paper. 
 
 ## Template
-
 You are required to use an official template that is also used in research for the NAACL conference. You can download it from http://naacl2018.org/call_for_paper.html or directly edit it on Overleaf: https://www.overleaf.com/latex/templates/instructions-for-naacl-hlt-2018-proceedings/mbgbzpzxdkth 
 
 ## Length
-
 Your report can be at most 8 pages long, excluding references. 
-
 
 ## Structure of report
 For the report, we suggest that use the following structure:
@@ -52,7 +49,7 @@ not-very-experience researcher in natural language processing or machine learnin
 However, make sure that the report describes interesting finding and your methods, 
 rather than provides a detailed description of your program.
 
-  - Do give a clear description on the decisions you made in the design
-  − Use scientific writing style and language in your report (formal, clear, concise)
-  − Use figures and tables to clearly display your results
-  − Try to make the report interesting (i.e. concentrate on insights / general ideas / findings / etc – rather than on obvious details)
+- Do give a clear description on the decisions you made in the design
+- Use scientific writing style and language in your report (formal, clear, concise)
+- Use figures and tables to clearly display your results
+- Try to make the report interesting (i.e. concentrate on insights / general ideas / findings / etc – rather than on obvious details)
