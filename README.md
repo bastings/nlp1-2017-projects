@@ -9,3 +9,6 @@ See [dep-parser](dep-parser/).
 
 See [lm](lm/).
 
+## Official project requirements
+
+Please see here: https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md
