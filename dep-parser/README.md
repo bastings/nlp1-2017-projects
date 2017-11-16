@@ -22,9 +22,9 @@ At the end of the project you will have a fully working parser! If time permits,
 * Inspect the parameters of the trained neural network to see what it has learned.
 * Or you could even come up with an improvement to the model!
 
-------
-Read on for more details on the project.
-------
+Read on for more details on the project. Under the section **sources** I collect sources that you might find useful. Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.
+
+
 
 ## Dependency grammar
 
@@ -42,6 +42,7 @@ Here is an example of a sentence annotated with dependency relations:
 
 * Jurafsky and Manning, chapter [Dependency parsing](Jurafsky&ManningCh14.pdf) (3rd edition) is your main source of information on dependency grammars and dependency parsing.
 * If you want additional information you can look at the slides from [this course](http://cl.indiana.edu/~md7/nasslli10/). In particular the slides on [Dependency Grammar](http://cl.indiana.edu/~md7/nasslli10/01/01-grammar.pdf) and [Graph-Based Dependency Parsing](http://cl.indiana.edu/~md7/nasslli10/04/graphbased.pdf) .
+* We use data from the [Universal Dependencies project](http://universaldependencies.org/). The [annotation guidelines](http://universaldependencies.org/guidelines.html) contains the answers all your data-format related questions.
 
 ## Graph algorithms
 
@@ -72,7 +73,7 @@ such as Dutch and German, because we can extract non-projective dependency trees
 ### Sources
 
 * There is a python package for graphs called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages.
-* See the [notebook](notebooks/graphs.ipynb) for a small demo on NetworkX.
+* See the notebook [graphs.ipynb](notebooks/graphs.ipynb) for a small demo on NetworkX.
 
 ## Neural networks
 
@@ -84,8 +85,6 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 In this section we collect sources that we think are useful for understanding the neural network methods used in this projects.
 
-(Note that you are by no means required to read them all! Browse them and see for yourself which sources you find useful - and until you found what you needed.)
-
 * **Word embeddings**
   * [Chapter 15](https://web.stanford.edu/~jurafsky/slp3/15.pdf) and especially [chapter 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf) of Jurafsky and Martin (3rd edition) is a good reference on the idea of using vector representations for words.
   * The [notebook on word embeddings](notebooks/word-embeddings.ipynb) we looked at in the tutorial.
@@ -94,8 +93,7 @@ In this section we collect sources that we think are useful for understanding th
 * **Sources for word embeddings**:
   * [Gensim](https://radimrehurek.com/gensim/models/word2vec.html) has an implementation of [Word2Vec](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/) that you can use to make your own word embeddings.
   * [GloVe](https://nlp.stanford.edu/projects/glove/) are perhaps the best vector representations for words available. You can download them in all kinds of dimensions.
-  * [Dependency-base word embeddings](https://levyomer.wordpress.com/2014/04/25/dependency-based-word-embeddings/)  http://www.aclweb.org/anthology/P14-2050 (see [here](http://www.aclweb.org/anthology/P14-2050) for the paper) are like Word2Vec, but with the big difference that context here is not defined as "closeby in linear distance" but as "distance in a syntactic tree".
-
+  * [Dependency-base word embeddings](https://levyomer.wordpress.com/2014/04/25/dependency-based-word-embeddings/)  http://www.aclweb.org/anthology/P14-2050 (see [here](http://www.aclweb.org/anthology/P14-2050) for the paper) are like Word2Vec, but with the big difference that context here is not defined as "nearby in linear distance" but as "nearby in a syntactic tree". Simple example: in the parse for *I prefer the morning flight through Denver* (see above), the word *flight* has a linear distance of 3 from the word *prefer*, but a syntactic distance of just 1.
 
 * **[Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network)** (RNNs) and in particular **[LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory)**
   * (LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN).
