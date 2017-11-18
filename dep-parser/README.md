@@ -83,7 +83,7 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 `[Under development]`
 
-`Note` I have added a new notebook: [An MLP learning the XOR function](notebooks/neural-xor.ipynb). This is an example implementation in PyTorch of the simplest neural network architecture (an MLP) learning to classisy the simplest possible non-linearly separable dataset. I hope that for some of you this will help clarify
+`Note` I have added a new notebook: [An MLP learning the XOR function](notebooks/neural-xor.ipynb). This is an example implementation in PyTorch of the simplest neural network architecture (an MLP) that learns to classify the simplest possible non-linearly separable dataset. I hope that for some of you this will help clarify the
 
 `Plan` If you want I could make a similar 'minimal example implememtation' for an RNN/LSTM.
 
