@@ -83,14 +83,18 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 `[Under development]`
 
+`Note` I have added a new notebook: [An MLP learning the XOR function](notebooks/neural-xor.ipynb). This is an example implementation in PyTorch of the simplest neural network architecture (an MLP) learning to classisy the simplest possible non-linearly separable dataset. I hope that for some of you this will help clarify
+
+`Plan` If you want I could make a similar 'minimal example implememtation' for an RNN/LSTM.
+
 ### Sources
 
 In this section we collect sources that we think are useful for understanding the neural network methods used in this projects.
 
 * **Word embeddings**
   * [Chapter 15](https://web.stanford.edu/~jurafsky/slp3/15.pdf) and especially [chapter 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf) of Jurafsky and Martin (3rd edition) is a good reference on the idea of using vector representations for words.
-  * The [notebook on word embeddings](notebooks/word-embeddings.ipynb) we looked at in the tutorial.
   * Word embeddings are often visualised with **t-SNE**. Learn more about that on the [author's webpage](https://lvdmaaten.github.io/tsne/) or from the publication [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) on Distill.
+  * **The** [**notebook on word embeddings**](notebooks/word-embeddings.ipynb) that we looked at in class.
 
 * **Sources for word embeddings**:
   * [Gensim](https://radimrehurek.com/gensim/models/word2vec.html) has an implementation of [Word2Vec](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/) that you can use to make your own word embeddings.
