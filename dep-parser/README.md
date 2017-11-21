@@ -1,4 +1,4 @@
-# Neural graph-based Dependency parser
+# Neural graph-based dependency parser
 
 In this project you will build a dependency parser from scratch!
 
