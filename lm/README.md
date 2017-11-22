@@ -2,14 +2,8 @@
 
 ## Report requirements
 
-As a final product, you will be asked to write an 8-page report with your findings, which should at least contain:
-
-- A background section, in which you explain what is language modelling, what kind of language models you studied, and what is the problem you focus on. To write this background section, you can use the suggested papers, but also add papers;
-- A summary of the relevant literature
-    - A description of your replication;
-- A formal discription of your model(s) and changes/improvements you made compared to the literature
-- Analysis of your results
-- A conclusion
+As a final product, you will be asked to write an 8-page report with your findings.
+Please find the general NLP1 instructions here: https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md
 
 ## Notes 13 Nov
 
