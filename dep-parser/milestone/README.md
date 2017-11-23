@@ -10,11 +10,11 @@ Below you will see detailed descriptions of milestones for your project. Read th
 
 ### Tips
 
-* The CONLL-U file does not have an `<unk>` word that represents unknown words. You do need to train good vector representations for `<unk>` though because during evaluation on the test-set you will encounter many unknown words. A possible idea is to replace all the words in your training file that occur just once with the word `<unk>`.
+* The CONLL-U file does not have an `<unk>` word that represents unknown words. You do need to train good vector representations for `<unk>` though. During evaluation on the test-set you will encounter many unknown words, and you will use the trained representation for `<unk>` for that. A possible idea is to replace all the words in your training file that occur just once with the word `<unk>`.
     * To give you an impression: the English UD training set `en-ud-train.conllu` has a vocabulary with ~20k types. Of these ~10k occur just once. The dataset consists of 200k tokens though, so only 5% will end up belonging to this `<unk>` class.
 
 * You will need dictionaries that map *words*, *tags*, and *labels* to indices: a `w2i`, `t2i`, and `l2i` dictionary. You also need the inverse dictionaries: `i2w`, `i2t`, `i2l`. (When your neural network predicts label 7 for some arc, you need to know which label that one was again to write out in the prediction!)
-    * This is a good place to use a `defaultdict`! Have another look at the code in the PyTorch tutorial to see how you can do this (e.g. the code in `cbow.py` shows you).
+    * This is a good place to use a `defaultdict`! Have another look at the code in the [PyTorch tutorial](https://github.com/tdeoskar/NLP1-2017/tree/master/pytorch-tutorial) to see how you can do this. For example in [cbow.py](https://github.com/tdeoskar/NLP1-2017/blob/master/pytorch-tutorial/cbow.py).
 
 * When you read in a `.conllu` file you will encounter some places where the line index is not an integer. E.g. it will say: `18.1	keep	keep	VERB	VB Mood=Imp|VerbForm=Fin	_	_	14:conj`. You might also find lines like: `1-2    vámonos   _ ...` - i.e. starting with integer-integer. You should remove these lines when reading in! These lines are not for our use.
 
