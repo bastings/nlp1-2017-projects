@@ -41,7 +41,7 @@ The additional readings of week three held another very good source the MST algo
 
 * You have an **embedding layer for words**. For this you use the class `torch.nn.Embedding`, see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation. The indices in this layer correspond to the indices you assign to the words in your vocabulary. E.g. `<unk>` has index 0, `the` has index 1, etc. (Here you need your `w2i` dictionary!)
 
-    * You can load in pre-trained word embeddings like GloVe into the `torch.nn.Embedding` class. [Here](https://discuss.pytorch.org/t/can-we-use-pre-trained-word-embeddings-for-weight-initialization-in-nn-embedding/1222) is how you can do that. (There is a slight caveat here. See the **note on training word embeddings**).
+    * You can load in pre-trained word embeddings like GloVe into the `torch.nn.Embedding` class. [Here](https://discuss.pytorch.org/t/can-we-use-pre-trained-word-embeddings-for-weight-initialization-in-nn-embedding/1222) is how you can do that. (There is a slight caveat here. See the tp below).
 
 * You have an **embedding layer for POS-tags**. For this you use the same class `torch.nn.Embedding`. Now the indices of this layer correspond to the indices you assigned to your POS-tags. E.g. `DET` has index 0, `VERB` has index 1, etc.
     * Again you can load in your own POS-tag embeddings like above. Since this class is very small compared to your vocabulary, it probably won’t pay much to do this (in terms of computation time nor in performance).
@@ -50,7 +50,7 @@ The additional readings of week three held another very good source the MST algo
 
 * You have an **LSTM** layer. This takes in the concatenated embeddings of all the word/POS-tag-pairs (`e_word o e_tag`) in the sentence, and returns their LSTM embeddings. For this you should use the class `torch.nn.LSTM` see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation.
 
-**The above is the minimal setup we would like all the groups to have by the next week.**
+*The above is the minimal setup we would like all the groups to have by the next week.*
 
 Now, note that these first steps are the basis for both for the Kiperwasser & Goldberg model as well as the Dozat & Manning model. So from here on you can choose one of three directions:
 1. Follow the Kiperwasser & Goldberg model for the final steps
