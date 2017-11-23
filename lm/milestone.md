@@ -1,8 +1,8 @@
 # Project Milestone
 
-## Generic Goals for next thursday: 
+## Generic Goals for next Thursday: 
 
-- You have your research questions clear
+- You have your research question(s) clear
 - You have read and understood all relevant literature
 - You have at least one baseline ready (with results)
 
