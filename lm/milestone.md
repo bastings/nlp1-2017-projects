@@ -41,7 +41,7 @@ A possibly better/different way to handle the unknown words is to use KenLM with
 Try to make final adjustments to this code so that you can evaluate it on the same data set.
 You can take inspiration from PyTorch RNN language modeling code. In particular, take a look at how it handles data: https://github.com/pytorch/examples/blob/master/word_language_model/main.py 
 
-You can see that in Neural Language Modeling it is the tradition to treat the training set as one long sequence of words, and to then cut this long sequence into parts of a certain size BPTT (e.g. BPTT=35 words). To make this work, you will have to add an end-of-sequence symbol “<eos >” after each sentence.
+You can see that in Neural Language Modeling it is the tradition to treat the training set as one long sequence of words, and to then cut this long sequence into parts of a certain size BPTT (e.g. BPTT=35 words). To make this work, you will have to add an end-of-sequence symbol `<eos>` after each sentence.
 
 For example, if your training set is this:
 
@@ -109,6 +109,8 @@ so that we can prepare an explanation for everyone for the next lab session, or 
 
 ## Tips
 
+### Pre-trained Embeddings
+
 PyTorch automatically considers each instance of `torch.nn.Embedding` as a parameter that needs training. So even if you load in pre-trained embeddings like described above, PyTorch will alter them during training. If you don’t want PyTorch to alter them during training (this will save your computer much computation time!) you must do the following.
 
 Let `embedding` be the instance of the `torch.nn.Embedding` layer in which you uploaded the pre-trained embeddings. Let `model` be the instance of your model class of which `embedding` is a part. Then you should do:
@@ -118,3 +120,16 @@ embedding.weight.requires_grad = False
 parameters = filter(lambda p: p.requires_grad, model.parameters())
 optimizer = torch.optim.SGD(parameters, lr=learning_rate)
 ```
+
+### Cross-entropy loss
+
+Note that `torch.nn.CrossEntropyLoss` is a combination of `LogSoftMax` and `NLLLoss`.
+This means that you should not use it on output that has already gone through a softmax! 
+
+Either:
+
+- Use a `softmax` at the end of your forward pass
+- Then use `NLLLoss` (negative log-likelihood)
+
+Or:
+- Only use `torch.nn.CrossEntropyLoss`, but don't take a softmax. You don't need a softmax to identify the argmax (the prediction), since the maximum value before softmax will still be the maximum value afterwards.
