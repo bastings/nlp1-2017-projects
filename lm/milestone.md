@@ -32,7 +32,10 @@ cat test.txt | sed "s/<unk>/UNK/g" > test.txt.UNK
 ```
 
 Now you can train using the above command, and test like this:
+
+```bash
 cat test.txt.UNK | ./query train.arpa
+```
 
 You should get a test perplexity of about 142.7 using this approach with a 4-gram model.
 For your report it would be nice to know how models with different orders perform (bi-, tri-, 5-gram).
