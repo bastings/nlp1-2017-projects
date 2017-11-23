@@ -63,7 +63,7 @@ Now, note that these first steps are the basis for both for the Kiperwasser & Go
 
 These final steps we will walk through together in the upcoming weeks. This includes showing you how to finish the above to take a full training step: using the LSTM embeddings to predict scores for each arcs; using these scores to predict arcs; predicting labels for these predicted arcs, calculating the loss of this combined prediction; using this loss to update the parameters.
 
-#### Tips
+### Tips
 
 PyTorch automatically considers each instance of `torch.nn.Embedding` as a parameter that needs training. So even if you load in pretrained embeddings like described above, PyTorch will alter them during training. If you don’t want PyTorch to alter them during training (this will save your computer much computation time!) you must do the following.
 
