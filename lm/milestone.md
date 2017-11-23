@@ -45,16 +45,20 @@ You can see that in Neural Language Modeling it is the tradition to treat the tr
 
 For example, if your training set is this:
 
-> A b c d 
-> E f g h
+```
+A b c d 
+E f g h
+```
 
 And you are using BPTT=2, then you would train your RNN on the following sequences:
 
-> A b
-> c d
-> <eos > E
-> f g
-> h <eos >
+```
+A b
+c d
+<eos> E
+f g
+h <eos>
+```
 
 For Bengio’s LM, this is less of an issue, since you are already limited the history for 
 your predictions to N-1. For positions where your history is shorter than N-1, you 
@@ -79,17 +83,21 @@ artificial data set where it is very easy to predict the next word.
 
 For example, train on:
 
-> a b c d e
-> b c d 
-> etc.
+```
+a b c d e
+b c d 
+etc.
+```
 
 (you could also make a short python program that generates such sequences).
 
 Then test on e.g.
 
-> c d e
-> a b c  
-> etc.
+```
+c d e
+a b c  
+etc.
+```
 
 Your network should figure out very quickly how to do this, 
 and should get perfect perplexity on your train and test set.
