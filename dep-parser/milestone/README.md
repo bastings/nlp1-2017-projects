@@ -33,7 +33,7 @@ Below you will see detailed descriptions of milestones for your project. We also
 
 But, we understand if you don’t yet. After all, this is **one of the most challenging parts of your project!** We don’t want your project to stall because you keep getting bugs in this part, so *in the unfortunate case where you just do not get it working, we can provide you with a completely error-free MST implementation.* This way, the success of your project will not hinge on this part.
 
-# Tips
+### Tips
 
 The additional readings of week three held another very good source the MST algorithm: the paper called [Non-projective Dependency Parsing using Spanning Tree Algorithms](http://www.aclweb.org/anthology/H05-1066). Figure 3 has a full pseudo-code.
 
