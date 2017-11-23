@@ -19,7 +19,10 @@ Make sure you have figured out how to use KenLM and get a perplexity on the test
 We recommend that you use kenlm from the command line. You can first try training a 3-gram model, and then go towards 4 and 5-gram models
 
 This is how to train a 3-gram model: 
+
+```bash
 ./lmplz -o 3 < train.txt > train.arpa
+```
 
 You will see that KenLM complains about the <unk> tokens in the dataset. You can work around this by replacing them with “UNK”, like this:
 
