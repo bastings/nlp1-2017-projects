@@ -41,18 +41,20 @@ A possibly better/different way to handle the unknown words is to use KenLM with
 Try to make final adjustments to this code so that you can evaluate it on the same data set.
 You can take inspiration from PyTorch RNN language modeling code. In particular, take a look at how it handles data: https://github.com/pytorch/examples/blob/master/word_language_model/main.py 
 
-You can see that in Neural Language Modeling it is the tradition to treat the training set as one long sequence of words, and to then cut this long sequence into parts of a certain size BPTT (e.g. BPTT=35 words). To make this work, you will have to add an end-of-sequence symbol “<eos>” after each sentence.
+You can see that in Neural Language Modeling it is the tradition to treat the training set as one long sequence of words, and to then cut this long sequence into parts of a certain size BPTT (e.g. BPTT=35 words). To make this work, you will have to add an end-of-sequence symbol “<eos >” after each sentence.
 
 For example, if your training set is this:
-A b c d 
-E f g h
+
+> A b c d 
+> E f g h
 
 And you are using BPTT=2, then you would train your RNN on the following sequences:
-A b
-c d
-<eos> E
-f g
-h <eos>
+
+> A b
+> c d
+> <eos > E
+> f g
+> h <eos >
 
 For Bengio’s LM, this is less of an issue, since you are already limited the history for 
 your predictions to N-1. For positions where your history is shorter than N-1, you 
