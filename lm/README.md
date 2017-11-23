@@ -1,5 +1,9 @@
 # Neural Language Modeling
 
+## Milestone
+
+Please read the [milestone](milestone.md) info.
+
 ## Report requirements
 
 As a final product, you will be asked to write an 8-page report with your findings.
