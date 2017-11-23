@@ -10,8 +10,8 @@ Below you will see detailed descriptions of milestones for your project. We also
 
 ### Tips
 
-* The CONLL-U file does not have an *<unk>* word that represents unknown words. You do need to train good vector representations for *<unk>* though because during evaluation on the test-set you will encounter many unknown words. A possible idea is to replace all the words in your training file that occur just once with the word *<unk>*.
-    * To give you an impression: the English UD training set `en-ud-train.conllu` has a vocabulary with ~20k types. Of these ~10k occur just once. The dataset consists of 200k tokens though, so only 5% will end up belonging to this *<unk>* class.
+* The CONLL-U file does not have an `<unk>` word that represents unknown words. You do need to train good vector representations for `<unk>` though because during evaluation on the test-set you will encounter many unknown words. A possible idea is to replace all the words in your training file that occur just once with the word `<unk>`.
+    * To give you an impression: the English UD training set `en-ud-train.conllu` has a vocabulary with ~20k types. Of these ~10k occur just once. The dataset consists of 200k tokens though, so only 5% will end up belonging to this `<unk>` class.
 
 * You will need dictionaries that map *words*, *tags*, and *labels* to indices: a `w2i`, `t2i`, and `l2i` dictionary. You also need the inverse dictionaries: `i2w`, `i2t`, `i2l`. (When your neural network predicts label 7 for some arc, you need to know which label that one was again to write out in the prediction!)
     * This is a good place to use a `defaultdict`! Have another look at the code in the PyTorch tutorial to see how you can do this (e.g. the code in `cbow.py` shows you).
@@ -43,11 +43,11 @@ The additional readings of week three held another very good source the MST algo
 
 **Milestone:** Have a *minimal* neural network architecture set up. By this we mean the following:
 
-* You have an **embedding layer for words**. For this you use the class `torch.nn.Embedding`, see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation. The indices in this layer correspond to the indices you assign to the words in your vocabulary. E.g. *<unk>* has index 0, *the* has index 1, etc. (Here you need your `w2i` dictionary!)
+* You have an **embedding layer for words**. For this you use the class `torch.nn.Embedding`, see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation. The indices in this layer correspond to the indices you assign to the words in your vocabulary. E.g. `<unk>` has index 0, `the` has index 1, etc. (Here you need your `w2i` dictionary!)
 
     * You can load in pre-trained word embeddings like GloVe into the `torch.nn.Embedding` class. [Here](https://discuss.pytorch.org/t/can-we-use-pre-trained-word-embeddings-for-weight-initialization-in-nn-embedding/1222) is how you can do that. (There is a slight caveat here. See the **note on training word embeddings**).
 
-* You have an **embedding layer for POS-tags**. For this you use the same class `torch.nn.Embedding`. Now the indices of this layer correspond to the indices you assigned to your POS-tags. E.g. *DET* has index 0, *VERB* has index 1, etc.
+* You have an **embedding layer for POS-tags**. For this you use the same class `torch.nn.Embedding`. Now the indices of this layer correspond to the indices you assigned to your POS-tags. E.g. `DET` has index 0, `VERB` has index 1, etc.
     * Again you can load in your own POS-tag embeddings like above. Since this class is very small compared to your vocabulary, it probably won’t pay much to do this (in terms of computation time nor in performance).
 
 * You **concatenate these word embeddings**: this takes `e_word` and `e_tag` and returns `e_word o e_tag` (where `o` indicates concatenation).
