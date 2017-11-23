@@ -95,3 +95,16 @@ and should get perfect perplexity on your train and test set.
 If there are certain things where you would need more explanation, 
 and you think everyone would benefit from that, please send us a short and concise e-mail about it, 
 so that we can prepare an explanation for everyone for the next lab session, or post it on Piazza (in the project folder).
+
+
+## Tips
+
+PyTorch automatically considers each instance of `torch.nn.Embedding` as a parameter that needs training. So even if you load in pre-trained embeddings like described above, PyTorch will alter them during training. If you don’t want PyTorch to alter them during training (this will save your computer much computation time!) you must do the following.
+
+Let `embedding` be the instance of the `torch.nn.Embedding` layer in which you uploaded the pre-trained embeddings. Let `model` be the instance of your model class of which `embedding` is a part. Then you should do:
+
+```python
+embedding.weight.requires_grad = False
+parameters = filter(lambda p: p.requires_grad, model.parameters())
+optimizer = torch.optim.SGD(parameters, lr=learning_rate)
+```
