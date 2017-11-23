@@ -1,8 +1,8 @@
 # Project milestone
 
-Below you will see detailed descriptions of milestones for your project. We also included some tips for each of the parts.
+Below you will see detailed descriptions of milestones for your project. Read this through carefully. We also included some tips for each of the parts that we hope you will find usefull.
 
-:warning: Read this through carefully :warning:
+:warning: These milestone goals are for November 30 :warning:
 
 ## Dependency-data handling
 
