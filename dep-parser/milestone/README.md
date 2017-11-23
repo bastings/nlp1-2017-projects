@@ -10,7 +10,7 @@ Below you will see detailed descriptions of milestones for your project. Read th
 
 ### Tips
 
-* The CONLL-U file does not have an `<unk>` word that represents unknown words. You do need to train good vector representations for `<unk>` though. During evaluation on the test-set you will encounter many unknown words, and you will use the trained representation for `<unk>` for that. A possible idea is to replace all the words in your training file that occur just once with the word `<unk>`.
+* The CONLL-U file does not have an `<unk>` word that represents unknown words. You do need to train good vector representations for `<unk>` though. During evaluation on the test-set you will encounter many unknown words, and you will use the trained representation for `<unk>` for these cases. A possible idea is to replace all the words in your training file that occur just once with the word `<unk>`.
     * To give you an impression: the English UD training set `en-ud-train.conllu` has a vocabulary with ~20k types. Of these ~10k occur just once. The dataset consists of 200k tokens though, so only 5% will end up belonging to this `<unk>` class.
 
 * You will need dictionaries that map *words*, *tags*, and *labels* to indices: a `w2i`, `t2i`, and `l2i` dictionary. You also need the inverse dictionaries: `i2w`, `i2t`, `i2l`. (When your neural network predicts label 7 for some arc, you need to know which label that one was again to write out in the prediction!)
@@ -25,8 +25,6 @@ Below you will see detailed descriptions of milestones for your project. Read th
 * When you write out your predictions the CONNL-U format it will be very easy to evaluate the performance. For this you can use the UD evaluation script that you can download [here](http://universaldependencies.org/conll17/evaluation.html).
     * The evaluation script is written in python and is super easy to use: if you saved your predicted CONLL-U file in `system_conllu_file` and the reference (gold-standard) CONLL-U file in `gold_conllu_file`, you can just call from the terminal: `python conll17_ud_eval.py -v gold_conllu_file system_conllu_file`, and the results will be printed out in the terminal.
 
-----
-
 ## Graph algorithm
 
 **Milestone:** Ideally, you have a working implementation of the *Chu-Liu-Edmonds' algorithm* for finding the maximum spanning-tree (MST).
@@ -36,8 +34,6 @@ But, we understand if you don’t yet. After all, this is **one of the most chal
 ### Tips
 
 The additional readings of week three held another very good source the MST algorithm: the paper called [Non-projective Dependency Parsing using Spanning Tree Algorithms](http://www.aclweb.org/anthology/H05-1066). Figure 3 has a full pseudo-code.
-
-----
 
 ## Neural Network
 
