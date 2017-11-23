@@ -4,7 +4,7 @@
 
 - You have your research questions clear
 - You have read and understood all relevant literature
-- You have a baseline (with results)
+- You have at least one baseline ready (with results)
 
 For those comparing different language models:
 - Understand how the data is commonly handled for RNN-style models, see below.
