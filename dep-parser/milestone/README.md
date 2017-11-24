@@ -41,7 +41,7 @@ The additional readings of week three held another very good source the MST algo
 
 * You have an **embedding layer for words**. For this you use the class `torch.nn.Embedding`, see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation. The indices in this layer correspond to the indices you assign to the words in your vocabulary. E.g. `<unk>` has index 0, `the` has index 1, etc. (Here you need your `w2i` dictionary!)
 
-    * You can load in pre-trained word embeddings like GloVe into the `torch.nn.Embedding` class. [Here](https://discuss.pytorch.org/t/can-we-use-pre-trained-word-embeddings-for-weight-initialization-in-nn-embedding/1222) is how you can do that. (There is a slight caveat here. See the tp below).
+    * You can load in pre-trained word embeddings like GloVe into the `torch.nn.Embedding` class. [Here](https://discuss.pytorch.org/t/can-we-use-pre-trained-word-embeddings-for-weight-initialization-in-nn-embedding/1222) is how you can do that. (There is a slight caveat here. See the third tip below).
 
 * You have an **embedding layer for POS-tags**. For this you use the same class `torch.nn.Embedding`. Now the indices of this layer correspond to the indices you assigned to your POS-tags. E.g. `DET` has index 0, `VERB` has index 1, etc.
     * Again you can load in your own POS-tag embeddings like above. Since this class is very small compared to your vocabulary, it probably won’t pay much to do this (in terms of computation time nor in performance).
@@ -61,7 +61,11 @@ These final steps we will walk through together in the upcoming weeks. This incl
 
 ### Tips
 
-PyTorch automatically considers each instance of `torch.nn.Embedding` as a parameter that needs training. So even if you load in pretrained embeddings like described above, PyTorch will alter them during training. If you don’t want PyTorch to alter them during training (this will save your computer much computation time!) you must do the following.
+* Do you already have a running implementation of the model and you want to test if it is correct? Perform the following simple experiment. Select only short sentences from you dataset (e.g. length < 11 words) to create an artificially easy dataset. Doing this will probably leave you with only 10% of the original training-set, and your network should get near perfect scores on this set.
+
+* Our advice is to **train with batches of size of 1**. This means that you let the network process just one sentence per training step to calculate the loss of the network with respect to this training instance. As opposed to letting the network process a *mini-batch* (multiple sentences together, e.g. 16 or even 128) and calculate the *average* loss of the network over this mini-batch. Using a mini-batch is the default in almost all neural network implementations because (amongst others) it makes training much faster. But **in our case**, where we are dealing with variable length input (sentences), it will be much (much!) harder to get the implementation to work for mini-batches. You can of course do it (make sure you get it right!), and we will consider it a plus if you manage to get it working.
+
+* PyTorch automatically considers each instance of `torch.nn.Embedding` as a parameter that needs training. So even if you load in pre-trained embeddings like described above, PyTorch will alter them during training. If you don’t want PyTorch to alter them during training (this will save your computer much computation time!) you must do the following.
 
 Let `embedding` be the instance of the `torch.nn.Embedding` layer in which you uploaded the pre-trained embeddings. Let `model` be the instance of your model class of which `embedding` is a part. Then you should do:
 
