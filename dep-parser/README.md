@@ -2,7 +2,7 @@
 
 In this project you will build a dependency parser from scratch!
 
-`New!` Read the [milestones](/milestone) for more tips.
+`New!` Read the [milestones](milestone) for more tips.
 
 ## Introduction
 
