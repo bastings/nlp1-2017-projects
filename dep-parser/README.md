@@ -2,17 +2,19 @@
 
 In this project you will build a dependency parser from scratch!
 
+`New!` Read the [milestones](/milestone) for more tips.
+
 ## Introduction
 
 In this project you will build a **graph-based dependency parser** that is trained using **neurals networks** with the help of **PyTorch**.
 
 Concretely, you will:
 
-* Read the relevant literature on dependency grammars, graph algorithms, and neural networks
-* Use this to re-implement the model described in [Dozat & Manning (2017)](https://arxiv.org/abs/1611.01734), which is an extension of [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023). (Read Kipperwasser & Goldberg first!)
+* Read the relevant literature on dependency grammars, graph algorithms, and neural networks.
+* Use this to re-implement the model described in [Kiperwasser & Goldberg (2016)](https://aclweb.org/anthology/Q16-1023) or to re-implement the extension of this model described in [Dozat & Manning (2017)](https://arxiv.org/abs/1611.01734). In any case, you should read Kipperwasser & Goldberg first.
 * Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally you choose a language that you are familiar with, so that you can interpret the performance of you model!
-* Use the trained model to parse sentences in a test-set, and evaluate how well it performs
-* Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
+* Use the trained model to parse sentences in a test-set, and evaluate how well it performs.
+* `Optional` Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
 * Write a final report on the results of your experiments.
 
 At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it:
@@ -64,14 +66,6 @@ The dotted lines show the complete graph. Each of these is assigned a weight by 
 
 Note: the **labels** on the arcs are **not** obtained using this algorithm. They are predicted afterwards. (We will discuss this later)
 
-
-<!--
-(for projective trees, suitable for languages such as English) and/or [Chu-Liu-Edmonds](https://en.wikipedia.org/wiki/Edmonds%27_algorithm) (for non-projective trees, languages such as German) to find the minimum-spanning tree (MST) given the weights your model assigns between each pair of words.
- More about this below!
-
-The advantage of graph-based dependency parsers is that they can work well on languages with discontinuities,
-such as Dutch and German, because we can extract non-projective dependency trees from them. -->
-
 ### Sources
 
 * There is a python package for graphs called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages.
@@ -85,7 +79,7 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 `Note` I have added a new notebook: [An MLP learning the XOR function](notebooks/neural-xor.ipynb). This is an example implementation in PyTorch of the simplest neural network architecture (an MLP) that learns to classify the simplest possible non-linearly separable dataset. I hope that for some of you this will help clarify the
 
-`Plan` If you want I could make a similar 'minimal example implememtation' for an RNN/LSTM.
+`Plan` If you want I could make a similar 'minimal example implementation' for an RNN/LSTM.
 
 ### Sources
 
@@ -99,10 +93,10 @@ In this section we collect sources that we think are useful for understanding th
 * **Sources for word embeddings**:
   * [Gensim](https://radimrehurek.com/gensim/models/word2vec.html) has an implementation of [Word2Vec](http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/) that you can use to make your own word embeddings.
   * [GloVe](https://nlp.stanford.edu/projects/glove/) are perhaps the best vector representations for words available. You can download them in all kinds of dimensions.
-  * [Dependency-base word embeddings](https://levyomer.wordpress.com/2014/04/25/dependency-based-word-embeddings/) (see [here](http://www.aclweb.org/anthology/P14-2050) for the paper) are like Word2Vec, but with the big difference that context here is not defined as "nearby in linear distance" but as "nearby in a syntactic tree". Simple example: in the parse for *I prefer the morning flight through Denver* (see above), the word *flight* has a linear distance of 3 from the word *prefer*, but a syntactic distance of just 1. This gives embeddings that are more effective at capturing syntactic information than regular the type of word embeddings described above. Looking at the effect this has could be an interesting experiment to perform with your finished parser!
+  * [Dependency-base word embeddings](https://levyomer.wordpress.com/2014/04/25/dependency-based-word-embeddings/) (see [here](http://www.aclweb.org/anthology/P14-2050) for the paper) are like Word2Vec, but with the big difference that context here is not defined as "nearby in linear distance" but as "nearby in a syntactic tree". Simple example: in the parse for *I prefer the morning flight through Denver* (see above), the word *flight* has a linear distance of 3 from the word *prefer*, but a syntactic distance of just 1. This gives embeddings that are more effective at capturing syntactic information than regular the type of word embeddings described above. Looking at the effect this has could be an interesting experiment to perform with your finished parser! **Note:** the only downside is that these embeddings are only available for download in dimension 300 (which is rather big for our purpose!).
 
 * **[Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network)** (RNNs) and in particular **[LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory)**
-  * (LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN).
+  * LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN.
   * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) by Andrej Karpathy.
   * [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) on Christopher Olah's blog.
   * [These lecture notes](http://cs224d.stanford.edu/lecture_notes/notes4.pdf) from the Stanford course Deep Learning for NLP.
@@ -124,4 +118,4 @@ The following sources are the theoretical backbone of the project:
 
 We advice you to read them in this order, especially the last two papers: Dozat & Manning (2017) is an extension of the model of Kiperwasser & Goldberg (2016), and the former presupposes a lot of knowledge of the latter.
 
-Note that The Kiperwasser & Goldberg paper is rather dense, but very complete. It contains condensed but very good explanations of all the techniques and steps taken in the implementation. So study this paper carefully! Then the extension that Dozat & Manning propose will make a lot more sense.
+Note that the Kiperwasser & Goldberg paper is rather dense, but very complete. It contains condensed but very good explanations of all the techniques and steps taken in the implementation. So study this paper carefully! Then the extension that Dozat & Manning propose will make a lot more sense.
