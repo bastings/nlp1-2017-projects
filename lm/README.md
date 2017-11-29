@@ -1,5 +1,9 @@
 # Neural Language Modeling
 
+## Notes 28 Nov
+
+Training/dev/test data *without* ```<unk>``` is now available on Blackboard for training character and sub-word langauge models.
+
 ## Milestone
 
 Please read the [milestone](milestone.md) info.
