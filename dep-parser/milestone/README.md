@@ -48,7 +48,7 @@ The additional readings of week three held another very good source the MST algo
 
 * You **concatenate these word embeddings**: this takes `e_word` and `e_tag` and returns `e_word o e_tag` (where `o` indicates concatenation).
 
-* You have an **LSTM** layer. This takes in the concatenated embeddings of all the word/POS-tag-pairs (`e_word o e_tag`) in the sentence, and returns their LSTM embeddings. For this you should use the class `torch.nn.LSTM` see [here](http://pytorch.org/docs/master/nn.html#embedding) for documentation.
+* You have an **LSTM** layer. This takes in the concatenated embeddings of all the word/POS-tag-pairs (`e_word o e_tag`) in the sentence, and returns their LSTM embeddings. For this you should use the class `torch.nn.LSTM` see [here](http://pytorch.org/docs/master/nn.html#torch.nn.LSTM) for documentation.
 
 *The above is the minimal setup we would like all the groups to have by the next week.*
 
