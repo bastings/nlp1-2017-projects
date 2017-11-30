@@ -2,7 +2,9 @@
 
 In this project you will build a dependency parser from scratch!
 
-`New!` Read the [milestones](milestone) for more tips.
+`New!` Check the [MST tutorial](mst/) with code that you may use for your project.
+
+Read the [milestones](milestone) for more tips.
 
 ## Introduction
 
