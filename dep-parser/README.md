@@ -77,11 +77,27 @@ Note: the **labels** on the arcs are **not** obtained using this algorithm. They
 
 For the method above to work well, we need to assign **weights** to all the possible edges. These weights are crucial for obtaining good parses; they essentially control which tree we obtain! But how do get them? For this we will use a **neural network**.
 
+### Embeddings
+
 `[Under development]`
 
-`Note` I have added a new notebook: [An MLP learning the XOR function](notebooks/neural-xor.ipynb). This is an example implementation in PyTorch of the simplest neural network architecture (an MLP) that learns to classify the simplest possible non-linearly separable dataset. I hope that for some of you this will help clarify the
+### LSTM
 
-`Plan` If you want I could make a similar 'minimal example implementation' for an RNN/LSTM.
+`[Under development]`
+
+### Scoring
+
+`[Under development]`
+
+### Training objective
+
+Here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(i -> j)`. The first and the last frame show the gold 0-1 adjacency matrix.
+
+![adjacency-gif](adjacency.gif)
+
+The objective for the neural network is to minimise the [**cross-entropy loss**](https://en.wikipedia.org/wiki/Cross_entropy) between the **column** `y_i` of the **predicted** adjacency matrix and the **columns** `gold_i` of the **gold** adjacency matrix. The interpretation is that each column specifies a probability distribution `p(i -> j)`, for `i=0,1,..,n`, such that `sum_i p(i -> j) = 1`.
+
+The matrix `A` is obtained from the score matrix `S`. The matrix `S` can hold any real numbers. To turn it into `A` we need to turn the columns into probability distributions. For this you use the [**softmax**](https://en.wikipedia.org/wiki/Softmax_function) function.
 
 ### Sources
 
