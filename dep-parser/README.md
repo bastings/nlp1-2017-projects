@@ -70,6 +70,8 @@ Note: the **labels** on the arcs are **not** obtained using this algorithm. They
 
 ### Sources
 
+* A good source for the MST algorithm is the paper called [Non-projective Dependency Parsing using Spanning Tree Algorithms](http://www.aclweb.org/anthology/H05-1066). Figure 3 has a full pseudo-code.
+* The notebook [mst.ipynb](mst/mst.ipynb) has a reference implementation of the MST algorithm that you can use to test your implementation, or to use in case you cannot get your implementation error-free.
 * There is a python package for graphs called [NetworkX](http://networkx.github.io/) that has an easy to use data-structure for representing [graphs](https://networkx.github.io/documentation/stable/reference/classes/index.html)), and implementation of [Edmond's algorithm](https://networkx.github.io/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.branchings.Edmonds.html?highlight=edmonds) that you can use to check the correctness of your own implementation. Lastly, it let's you [draw](https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw.html?highlight=draw#networkx.drawing.nx_pylab.draw) graphs, or [save](https://networkx.github.io/documentation/stable/reference/readwrite/graphml.html?highlight=xml) them as xml file so that you can draw them with other graph-drawing packages.
 * See the notebook [graphs.ipynb](notebooks/graphs.ipynb) for a small demo on NetworkX.
 
