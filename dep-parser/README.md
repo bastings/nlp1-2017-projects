@@ -93,21 +93,20 @@ Pass the concatenated word/POS-tag embeddings through an LSTM layer to get a new
 
 Use the set of `n` LSTM-output vectors to get scores for all `n^2` possible arcs `w_i -> w_j`.
 
-This gives us an `n x n` score matrix `S` such that `S[i,j] = score(w_i -> w_j)`, where the score is **any real number**.
+This gives us an `n x n` score matrix `S` such that `S[i,j] = score(w_i -> w_j)`, where the score is **any real number**/
 
 `[Under development]`
 
 ### Training objective
 
-Here we describe how you get your training loss.
+From the matrix `S` we can obtain the matrix `A` such that `A[i,j] = p(w_i -> w_j)`. The interpretation of `A` is that each column specifies a probability distribution `p(i -> j)`, for `i=0,1,..,n`, such that `sum_i p(i -> j) = 1`. Hence we see this as a kind of peculiar classification problem: each of the `n` words `w_i` is classified into one of `n` classes, the word `w_j` that is its head.To turn `S` into `A` we need to turn the **columns** into probability distributions. For this you use the [**softmax**](https://en.wikipedia.org/wiki/Softmax_function) function.
 
-First, here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(w_i -> w_j)`. The first and the last frame show the gold 0-1 adjacency matrix.
+The **training objective** for the neural network is to minimise the [**cross-entropy loss**](https://en.wikipedia.org/wiki/Cross_entropy) between the **column** `a_i` of the **predicted** adjacency matrix `A` and the **columns** `g_i` of the **gold** adjacency matrix `G`.
+
+Here's a gif of what that looks like. What you see below is the adjacency matrix `A` as it develops during training. The first and the last frame show the gold 0-1 adjacency matrix `G`.
 
 ![adjacency-gif](adjacency.gif)
 
-The objective for the neural network is to minimise the [**cross-entropy loss**](https://en.wikipedia.org/wiki/Cross_entropy) between the **column** `y_i` of the **predicted** adjacency matrix and the **columns** `gold_i` of the **gold** adjacency matrix. The interpretation is that each column specifies a probability distribution `p(i -> j)`, for `i=0,1,..,n`, such that `sum_i p(i -> j) = 1`. So we can see this as a kind of peculiar classification problem: each word `w_i` is classified into one class, the word `w_j` that is its head.
-
-The matrix `A` is obtained from the score matrix `S`. The matrix `S` can hold any real numbers. To turn it into `A` we need to turn the columns into probability distributions. For this you use the [**softmax**](https://en.wikipedia.org/wiki/Softmax_function) function.
 
 #### Pytorch
 
