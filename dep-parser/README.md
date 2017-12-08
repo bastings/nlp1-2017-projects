@@ -91,13 +91,31 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 ### Training objective
 
-Here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(i -> j)`. The first and the last frame show the gold 0-1 adjacency matrix.
+Here we describe how you get your training loss.
+
+First, here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(i -> j)`. The first and the last frame show the gold 0-1 adjacency matrix.
 
 ![adjacency-gif](adjacency.gif)
 
-The objective for the neural network is to minimise the [**cross-entropy loss**](https://en.wikipedia.org/wiki/Cross_entropy) between the **column** `y_i` of the **predicted** adjacency matrix and the **columns** `gold_i` of the **gold** adjacency matrix. The interpretation is that each column specifies a probability distribution `p(i -> j)`, for `i=0,1,..,n`, such that `sum_i p(i -> j) = 1`.
+The objective for the neural network is to minimise the [**cross-entropy loss**](https://en.wikipedia.org/wiki/Cross_entropy) between the **column** `y_i` of the **predicted** adjacency matrix and the **columns** `gold_i` of the **gold** adjacency matrix. The interpretation is that each column specifies a probability distribution `p(i -> j)`, for `i=0,1,..,n`, such that `sum_i p(i -> j) = 1`. So we can see this as a kind of peculiar classification problem: each word `w_i` is classified into one class, the word `w_j` that is its head.
 
 The matrix `A` is obtained from the score matrix `S`. The matrix `S` can hold any real numbers. To turn it into `A` we need to turn the columns into probability distributions. For this you use the [**softmax**](https://en.wikipedia.org/wiki/Softmax_function) function.
+
+#### Pytorch
+
+In terms of **PyTorch** implementation of softmax and cross-entropy loss there are some particulars:
+* The function `torch.nn.CrossEntropyLoss` ([link](http://pytorch.org/docs/master/nn.html#torch.nn.CrossEntropyLoss)) accepts a tensor of shape `[minibatch, num_classes]`, with **logits**: *un-normalized* log-probabilities. In our case: this is the **score-matrix before applying the softmax**.
+    * You can process the whole score matrix **in one go**: minibatch of size `n` that is classified into one of `n` classesTake another look at the matrix `A` above to see this.
+    * Make sure you get the dimensions right! The matrix `A` above is actually in the format `[num_classes, minibatch]`, (you see why?), so we should transpose it to feed it into `CrossEntropyLoss`.
+
+
+The documentation for the function `CrossEntropyLoss` mentions: *This criterion combines* `LogSoftMax` *and* `NLLLoss` *in one single class.* What does that mean?
+
+* The function `torch.nn.LogSoftmax` ([link](http://pytorch.org/docs/master/nn.html?highlight=softmax#torch.nn.LogSoftmax)) computes the log-softmax of the input tensor. This gives you **log-prpbabilities**. You can specify the dimension to normalize.
+
+* The function `torch.nn.NLLLoss` ([link](http://pytorch.org/docs/master/nn.html#torch.nn.NLLLoss)) accepts a tensor of shape `[minibatch, num_classes]` with **log-probabilities**, and computes `loss(x, class) = -x[class]`. This is the cross-entropy between `x` and a one hot distribution for the class label!
+
+Hence, there are two 'different' ways to the same loss: If you first compute the `LogSoftmax` of the score matrix `S` and then use `NLLloss` you get the same loss as when you give the score matrix `S` to `CrossEntropyLoss` directly. **It is up to you which you choose.**
 
 ### Sources
 
@@ -117,8 +135,7 @@ In this section we collect sources that we think are useful for understanding th
   * LSTM stands for *Long short-term memory*. For clarity: an LSTM is a special type of RNN.
   * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) by Andrej Karpathy.
   * [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) on Christopher Olah's blog.
-  * [These lecture notes](http://cs224d.stanford.edu/lecture_notes/notes4.pdf) from the Stanford course Deep Learning for NLP.
-  * Oxford also ran a course on Deep Learning for NLP earlier this year. [Lecture 3](https://github.com/oxford-cs-deepnlp-2017/lectures#5-lecture-3---language-modelling-and-rnns-part-1-phil-blunsom) and [lecture 4](https://github.com/oxford-cs-deepnlp-2017/lectures#6-lecture-4---language-modelling-and-rnns-part-2-phil-blunsom) offer a very (very) good introduction in RNNs and LSTMs respectively. If you find yourself with 3 hours to spare, watching these lecture is probably a great way to spend them.
+  * In class we looked at these slides from the Oxford course on Deep Learning for NLP: [Lecture 3](https://github.com/oxford-cs-deepnlp-2017/lectures/blob/master/Lecture%203%20-%20Language%20Modelling%20and%20RNNs%20Part%201.pdf) and [lecture 4](https://github.com/oxford-cs-deepnlp-2017/lectures/blob/master/Lecture%204%20-%20Language%20Modelling%20and%20RNNs%20Part%202.pdf).
 
 * **Pytorch**
   * This [PyTorch tutorial](http://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html) has a simple implementation of an RNN.
