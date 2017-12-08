@@ -79,13 +79,21 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 ### Embeddings
 
+Given a sentence of length `n`, we take the `n` **words** with their **POS-tags** to their vector-representations (embeddings). Concatenate them to give `n` word/POS-tag embeddings.
+
 `[Under development]`
 
 ### LSTM
 
+Pass the concatenated word/POS-tag embeddings through an LSTM layer to get a new set of `n` vectors.
+
 `[Under development]`
 
 ### Scoring
+
+Use the set of `n` LSTM-output vectors to get scores for all `n^2` possible arcs `w_i -> w_j`.
+
+This gives us an `n x n` score matrix `S` such that `S[i,j] = score(w_i -> w_j)`, where the score is **any real number**.
 
 `[Under development]`
 
@@ -93,7 +101,7 @@ For the method above to work well, we need to assign **weights** to all the poss
 
 Here we describe how you get your training loss.
 
-First, here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(i -> j)`. The first and the last frame show the gold 0-1 adjacency matrix.
+First, here's a gif of the adjacency matrix `A` as it develops during training, where `A[i,j] = p(w_i -> w_j)`. The first and the last frame show the gold 0-1 adjacency matrix.
 
 ![adjacency-gif](adjacency.gif)
 
@@ -105,13 +113,12 @@ The matrix `A` is obtained from the score matrix `S`. The matrix `S` can hold an
 
 In terms of **PyTorch** implementation of softmax and cross-entropy loss there are some particulars:
 * The function `torch.nn.CrossEntropyLoss` ([link](http://pytorch.org/docs/master/nn.html#torch.nn.CrossEntropyLoss)) accepts a tensor of shape `[minibatch, num_classes]`, with **logits**: *un-normalized* log-probabilities. In our case: this is the **score-matrix before applying the softmax**.
-    * You can process the whole score matrix **in one go**: minibatch of size `n` that is classified into one of `n` classesTake another look at the matrix `A` above to see this.
-    * Make sure you get the dimensions right! The matrix `A` above is actually in the format `[num_classes, minibatch]`, (you see why?), so we should transpose it to feed it into `CrossEntropyLoss`.
-
+    * You can process the whole score matrix **in one go**: minibatch of size `n` that is classified into one of `n` classes. Take another look at the matrix `A` above to see this.
+    * Make sure you get the dimensions right! For example, the matrix `A` above is actually in the format `[num_classes, minibatch]`, (you see why?).
 
 The documentation for the function `CrossEntropyLoss` mentions: *This criterion combines* `LogSoftMax` *and* `NLLLoss` *in one single class.* What does that mean?
 
-* The function `torch.nn.LogSoftmax` ([link](http://pytorch.org/docs/master/nn.html?highlight=softmax#torch.nn.LogSoftmax)) computes the log-softmax of the input tensor. This gives you **log-prpbabilities**. You can specify the dimension to normalize.
+* The function `torch.nn.LogSoftmax` ([link](http://pytorch.org/docs/master/nn.html?highlight=softmax#torch.nn.LogSoftmax)) computes the log-softmax of the input tensor. This gives you **log-probabilities**. You can specify the dimension to normalize.
 
 * The function `torch.nn.NLLLoss` ([link](http://pytorch.org/docs/master/nn.html#torch.nn.NLLLoss)) accepts a tensor of shape `[minibatch, num_classes]` with **log-probabilities**, and computes `loss(x, class) = -x[class]`. This is the cross-entropy between `x` and a one hot distribution for the class label!
 
