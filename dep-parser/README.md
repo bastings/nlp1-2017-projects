@@ -2,9 +2,9 @@
 
 In this project you will build a dependency parser from scratch!
 
-`New!` Check the [MST tutorial](mst/) with code that you may use for your project.
-
-Read the [milestones](milestone) for more tips.
+* `New` Read the [guidelines](https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md) for you project report.
+* Check the [MST tutorial](mst/) with code that you may use for your project.
+* Read the [milestones](milestone) for more tips.
 
 ## Introduction
 
@@ -17,7 +17,7 @@ Concretely, you will:
 * Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally you choose a language that you are familiar with, so that you can interpret the performance of you model!
 * Use the trained model to parse sentences in a test-set, and evaluate how well it performs.
 * `Optional` Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
-* Write a final report on the results of your experiments.
+* Write a final report on the results of your experiments. [These](https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md) are the guidelines
 
 At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it:
 
@@ -150,6 +150,12 @@ In this section we collect sources that we think are useful for understanding th
   * Another [PyTorch tutorial](http://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html?highlight=lstm) on how to use and LSTM for POS-tagging (without an HMM, Viterbi, or the forward-backward probabilities!).
   * The PyTorch documentation on [recurrent layers](http://pytorch.org/docs/master/nn.html#recurrent-layers) in the NN module has out of the box implementations of RNNs and LSTMs.
   * The PyTorch documentation on [sparse layers](http://pytorch.org/docs/master/nn.html#embedding) in the NN module contains the class `Embedding`. This implements the embedding matrix that I discussed in class in an extremely easy-to-use way.
+
+
+## Report
+
+The guidelines for the report can be found [here]()
+
 
 ## Required readings
 
