@@ -17,7 +17,7 @@ Concretely, you will:
 * Train this model on annotated data from the [Universal Dependencies project](http://universaldependencies.org/). Next to English, you will choose one other language to investigate. Ideally you choose a language that you are familiar with, so that you can interpret the performance of you model!
 * Use the trained model to parse sentences in a test-set, and evaluate how well it performs.
 * `Optional` Run a baseline dependency parser (that we provide) to get some scores. See if you can beat them with your own parser!
-* Write a final report on the results of your experiments. [These](https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md) are the guidelines
+* Write a final report on the results of your experiments. [Here](https://github.com/tdeoskar/NLP1-2017/blob/master/project-reqs.md) are the guidelines.
 
 At the end of the project you will have a fully working parser! If time permits, you can do a number of interesting things with it:
 
